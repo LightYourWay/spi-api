@@ -1,3 +1,7 @@
+/* Define to prevent recursive inclusion -------------------------------------*/
+#ifndef __STM32_SPI_CPP__
+#define __STM32_SPI_CPP__
+
 #include "stm32_spi.h"
 
 spi::spi(SPI_HandleTypeDef *port_handle, GPIO_TypeDef *nss_port, uint16_t nss_pin)
@@ -28,3 +32,5 @@ uint8_t spi::receiveByte()
     assert(HAL_SPI_Receive(handle, &byte, 1, HAL_MAX_DELAY) == HAL_OK);
     return byte;
 }
+
+#endif /* __STM32_SPI_CPP__ */
